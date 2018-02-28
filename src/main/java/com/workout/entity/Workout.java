@@ -1,5 +1,6 @@
 package com.workout.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 @Entity
 
-public class Workout {
+public class Workout  implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long workoutId;
+	public long getWorkoutId() {
+		return workoutId;
+	}
+
+	public void setWorkoutId(long workoutId) {
+		this.workoutId = workoutId;
+	}
 	private String title ;
 	private double  calBurntPerUnitTime ;
 	private  String unitTime ;
@@ -31,6 +39,15 @@ public class Workout {
 		this.unitTime = unitTime.name();
 		this.userId = userId;
 	}
+	
+	
+	
+	
+	
+	public Workout() {
+	
+	}
+	
 	public String getTitle() {
 		return title;
 	}

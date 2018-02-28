@@ -1,5 +1,6 @@
 package com.workout.entity;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
@@ -8,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
-public class WorkoutTransaction {
+public class WorkoutTransaction implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,12 +28,14 @@ public class WorkoutTransaction {
 	public void setWorkoutId(long workoutId) {
 		this.workoutId = workoutId;
 	}
+
 	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
+	
 	public LocalDateTime getStopTime() {
 		return stopTime;
 	}
@@ -58,5 +63,7 @@ public class WorkoutTransaction {
 		this.duration = duration;
 		this.calsBurnt = calsBurnt;
 	}
-
+	public WorkoutTransaction() {
+	
+	}
 }
