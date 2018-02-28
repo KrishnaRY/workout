@@ -1,4 +1,4 @@
-package com.workout.application;
+package com.workout;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

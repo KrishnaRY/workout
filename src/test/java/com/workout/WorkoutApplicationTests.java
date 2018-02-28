@@ -1,4 +1,4 @@
-package com.workout.application;
+package com.workout;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
