@@ -1,0 +1,13 @@
+{"workoutId":8,"startTime":"2016-01-25T21:04:55","stopTime":"2016-01-25T21:33:55"}
+{
+	
+	"title":"Walking",
+	"calBurntPerUnitTime":20000,
+	"unitTime":"HOUR",
+	"userId":1
+}
+{
+	
+	"userName":"admin",
+	"password":"admin"
+}

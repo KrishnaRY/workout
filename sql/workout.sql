@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS  workout_transaction  ;
 DROP TABLE IF EXISTS  workout  ;
 DROP TABLE IF EXISTS  user  ;
-DROP TABLE IF EXISTS  UnitTime  ;
+
 
 
  CREATE  TABLE IF NOT EXISTS   user (
@@ -11,18 +11,11 @@ DROP TABLE IF EXISTS  UnitTime  ;
   PRIMARY KEY (user_id)
 ) ;
 
-
-
-
-CREATE  TABLE IF NOT EXISTS  UnitTime (
-    UnitTime ENUM('HOUR', 'MINUTE', 'SECOND')
-);
-
 CREATE  TABLE IF NOT EXISTS  workout (
   workout_id bigint(20) NOT NULL AUTO_INCREMENT,
   cal_burnt_per_unit_time double NOT NULL,
   title varchar(255) DEFAULT NULL,
-  unit_time UnitTime(255) DEFAULT NULL,
+  unit_time varchar(255),
   user_id bigint(20) NOT NULL,
   PRIMARY KEY (workout_id),
   CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user (user_id)

@@ -11,33 +11,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workout.entity.User;
-import com.workout.repository.UserRepository;
+import com.workout.service.UserService;
 
 @RestController
 public class UserRestController {
 	@Autowired
-	private UserRepository userRepository;
-	
+	private UserService userService;
+
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
-	  public ResponseEntity<String> persistPerson(@RequestBody User user) {
-	
-	    	userRepository.createUser(user);
-	      return ResponseEntity.status(HttpStatus.CREATED).build();
-	   
-	   
-	  }
-	
+	public ResponseEntity<String> persistPerson(@RequestBody User user) {
+
+		userService.createUser(user);
+		return ResponseEntity.status(HttpStatus.CREATED).build();
+
+	}
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	  public ResponseEntity login(@RequestBody User user) {
-	
-		List userList =	userRepository.findUser(user);
-		if(userList.size() > 0){
-			return new ResponseEntity<>( userList.get(0), HttpStatus.OK);
-		}else{
-			 return new ResponseEntity<>(" Invalid User Name / Password ...", HttpStatus.FORBIDDEN);
+	public ResponseEntity login(@RequestBody User user) {
+
+		List userList = userService.findUser(user);
+		if (userList.size() > 0) {
+			return new ResponseEntity<>(userList.get(0), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(" Invalid User Name / Password ...", HttpStatus.FORBIDDEN);
 		}
-	   
-	   
-	  }
+
+	}
 
 }

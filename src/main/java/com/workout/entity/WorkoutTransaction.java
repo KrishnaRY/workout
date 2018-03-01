@@ -9,11 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.workout.beans.LocalDateTimeDeserializer;
-import com.workout.beans.LocalDateTimeSerializer;
-
 @Entity
 public class WorkoutTransaction implements Serializable{
 	
@@ -25,11 +20,7 @@ public class WorkoutTransaction implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long txnId;
 	private long  workoutId ;
-	@JsonSerialize(using = LocalDateTimeSerializer.class)
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	private LocalDateTime   startTime ;
-	@JsonSerialize(using = LocalDateTimeSerializer.class)
-	@JsonDeserialize(using = LocalDateTimeDeserializer.class)
 	private LocalDateTime    stopTime;
 	private Duration   duration  ;
 	private double  calsBurnt ;

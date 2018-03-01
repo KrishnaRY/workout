@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
-import com.workout.beans.UnitTime;
 @Entity
 
 public class Workout  implements Serializable{
@@ -33,7 +33,8 @@ public class Workout  implements Serializable{
 	}
 	private String title ;
 	private double  calBurntPerUnitTime ;
-	private  String unitTime ;
+	@Enumerated(EnumType.STRING)
+	private  UnitTime unitTime ;
 	private  long userId  ;
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="workoutId")
@@ -42,13 +43,9 @@ public class Workout  implements Serializable{
 		super();
 		this.title = title;
 		this.calBurntPerUnitTime = calBurntPerUnitTime;
-		this.unitTime = unitTime.name();
+		this.unitTime = unitTime;
 		this.userId = userId;
 	}
-	
-	
-	
-	
 	
 	public Workout() {
 	
@@ -66,10 +63,10 @@ public class Workout  implements Serializable{
 	public void setCalBurntPerUnitTime(double calBurntPerUnitTime) {
 		this.calBurntPerUnitTime = calBurntPerUnitTime;
 	}
-	public String getUnitTime() {
+	public UnitTime getUnitTime() {
 		return unitTime;
 	}
-	public void setUnitTime(String unitTime) {
+	public void setUnitTime(UnitTime unitTime) {
 		this.unitTime = unitTime;
 	}
 	public long getUserId() {
