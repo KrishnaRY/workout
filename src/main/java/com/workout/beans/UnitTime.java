@@ -1,4 +1,4 @@
-package com.workout.entity;
+package com.workout.beans;
 
 public enum UnitTime {
 	HOUR, 

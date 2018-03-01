@@ -9,7 +9,7 @@ public class Util {
 	public static double calculateCalsBurnt (long duration, Workout workout){
 		
 		double calsBurnt=0;
-		if(workout.getUnitTime().equals("HOURS")){
+		if(workout.getUnitTime().equals("HOUR")){
 			calsBurnt= (workout.getCalBurntPerUnitTime()/TimeUnit.HOURS.toMillis(1));
 		}else if(workout.getUnitTime().equals("MINUTE")){
 			calsBurnt= (workout.getCalBurntPerUnitTime()/TimeUnit.MINUTES.toMillis(1));

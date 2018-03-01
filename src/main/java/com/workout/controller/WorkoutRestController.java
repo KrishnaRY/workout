@@ -1,7 +1,6 @@
 package com.workout.controller;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
 import com.workout.entity.Workout;
 import com.workout.entity.WorkoutTransaction;
 import com.workout.repository.WorkoutRepository;
