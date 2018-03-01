@@ -1,23 +1,26 @@
 package com.workout.repository;
 
-import org.aspectj.lang.annotation.Before;
-import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.workout.SessionFactoryTest;
+import com.workout.entity.User;
 @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = { SessionFactoryTest.class })
 public class UserRepositoryTest {
+	@Autowired
+	 UserRepository userRepository;
 
-	private UserRepository userRepository;
-
-	 @MockBean private SessionFactory sessionFactory;
-	@Before(value = "")
-	public void setup(){
-		userRepository=new UserRepository();
-	}
+	//private SessionFactory sessionFactory;
+	
 	@Test
 	public void testJpaFind(){
+		User user= new User("admin123","admin123");
+		
+		userRepository.createUser(user);
 	System.out.println(userRepository);
 	}
 }

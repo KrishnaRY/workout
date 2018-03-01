@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,7 +24,10 @@ public class Workout  implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="workout_id")
 	private long workoutId;
+	
+
 	public long getWorkoutId() {
 		return workoutId;
 	}
@@ -32,9 +36,12 @@ public class Workout  implements Serializable{
 		this.workoutId = workoutId;
 	}
 	private String title ;
+	@Column(name="cal_burnt_per_unit_time")
 	private double  calBurntPerUnitTime ;
 	@Enumerated(EnumType.STRING)
+	@Column(name="unit_time")
 	private  UnitTime unitTime ;
+	@Column(name="user_id")
 	private  long userId  ;
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name="workoutId")
