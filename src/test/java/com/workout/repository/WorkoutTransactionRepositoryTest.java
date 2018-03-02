@@ -1,5 +1,7 @@
 package com.workout.repository;
 
+import static org.junit.Assert.assertNotEquals;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 
@@ -25,7 +27,8 @@ public class WorkoutTransactionRepositoryTest {
 		WorkoutTransaction workoutTransaction=new WorkoutTransaction(8,  LocalDateTime.now().plusHours(1), LocalDateTime.now().plusHours(1), Duration.ofHours(1),7777);
 			
 		
-		workoutTransactionRepository.createWorkoutTransaction(workoutTransaction);
+		long txnId=workoutTransactionRepository.createWorkoutTransaction(workoutTransaction);
+		assertNotEquals(txnId, 0);
 		
 	}
 

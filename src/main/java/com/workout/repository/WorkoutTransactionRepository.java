@@ -14,7 +14,7 @@ import com.workout.entity.WorkoutTransaction;
 public class WorkoutTransactionRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
-	public void createWorkoutTransaction(WorkoutTransaction workoutTransaction) {
+	public long createWorkoutTransaction(WorkoutTransaction workoutTransaction) {
 		Session session = sessionFactory.openSession();
 		
 		Query query = session.createSQLQuery("INSERT INTO workout_transaction(workout_id, start_time, stop_time,duration,cals_burnt) VALUES (:workoutId, :startTime, :stopTime,:duration,:calsBurnt)");
@@ -23,7 +23,7 @@ public class WorkoutTransactionRepository {
 		query.setParameter("stopTime", Timestamp.valueOf(workoutTransaction.getStopTime()));
 		query.setParameter("duration", workoutTransaction.getDuration().toMillis());
 		query.setParameter("calsBurnt", workoutTransaction.getCalsBurnt());
-		query.executeUpdate();
+	return	query.executeUpdate();
 		//sessionFactory.openSession().save(workoutTransaction);
 		
 	}

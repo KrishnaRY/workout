@@ -13,8 +13,8 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
-	public void createUser(User user) {
-		userRepository.createUser(user);
+	public long createUser(User user) {
+	return	userRepository.createUser(user);
 		
 	}
 

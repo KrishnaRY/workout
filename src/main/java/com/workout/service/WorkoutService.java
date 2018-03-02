@@ -17,8 +17,8 @@ public class WorkoutService {
 		return workoutRepository.getWorkouts(userId);
 	}
 
-	public void createWorkout(Workout workout) {
-		workoutRepository.createWorkout(workout);
+	public long createWorkout(Workout workout) {
+		return workoutRepository.createWorkout(workout);
 		
 	}
 

@@ -18,7 +18,7 @@ public class WorkoutTransactionService {
 	@Autowired
 	private WorkoutRepository workoutRepository;
 
-	public void createWorkoutTransaction(WorkoutTransaction workoutTransaction) {
+	public long createWorkoutTransaction(WorkoutTransaction workoutTransaction) {
 		Workout workout = workoutRepository.getWorkout(workoutTransaction.getWorkoutId());
 		long duration = Duration.between(workoutTransaction.getStartTime(), workoutTransaction.getStopTime())
 				.toMillis();
@@ -26,7 +26,7 @@ public class WorkoutTransactionService {
 				.setDuration(Duration.between(workoutTransaction.getStartTime(), workoutTransaction.getStopTime()));
 		workoutTransaction.setCalsBurnt(calculateCalsBurnt(duration, workout));
 
-		workoutTransactionRepository.createWorkoutTransaction(workoutTransaction);
+		return workoutTransactionRepository.createWorkoutTransaction(workoutTransaction);
 	}
 
 	private double calculateCalsBurnt(long duration, Workout workout) {

@@ -1,5 +1,6 @@
 package com.workout.repository;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -14,9 +15,11 @@ public class WorkoutRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void createWorkout(Workout workout) {
+	public long createWorkout(Workout workout) {
 		System.out.println(workout.getUnitTime());
-		sessionFactory.openSession().save(workout);
+		return (Long)sessionFactory.openSession().save(workout);
+		
+		
 	}
 
 	public List getWorkouts(long userId) {

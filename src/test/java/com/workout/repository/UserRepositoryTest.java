@@ -1,5 +1,7 @@
 package com.workout.repository;
 
+import static org.junit.Assert.assertNotEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ public class UserRepositoryTest {
 	public void testJpaFind(){
 		User user= new User("admin123","admin123");
 		
-		userRepository.createUser(user);
-	System.out.println(userRepository);
+		long userid=userRepository.createUser(user);
+		assertNotEquals(userid, 0);
 	}
 }

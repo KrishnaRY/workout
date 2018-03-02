@@ -16,9 +16,8 @@ import com.workout.entity.User;
 public class UserRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
-	public void createUser(User user) {
-		System.out.println(user.getUserId());
-	sessionFactory.openSession().save(user);
+	public long createUser(User user) {
+	return	(long)sessionFactory.openSession().save(user);
 		
 	}
 	public List findUser(User user) {
