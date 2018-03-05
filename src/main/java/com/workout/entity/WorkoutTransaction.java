@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="workout_transaction")
 public class WorkoutTransaction implements Serializable{
 	
 	/**
@@ -18,11 +21,16 @@ public class WorkoutTransaction implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="txn_id")
 	private long txnId;
+	@Column(name="workout_id")
 	private long  workoutId ;
+	@Column(name="start_time")
 	private LocalDateTime   startTime ;
+	@Column(name="stop_time")
 	private LocalDateTime    stopTime;
 	private Duration   duration  ;
+	@Column(name="cals_burnt")
 	private double  calsBurnt ;
 	public long getWorkoutId() {
 		return workoutId;

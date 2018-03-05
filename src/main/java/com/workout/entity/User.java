@@ -26,7 +26,7 @@ public class User implements Serializable {
 	private String userName;
 	private String password;
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="userId")
+	@JoinColumn(name="user_id")
 	private List<Workout> workout = new ArrayList<Workout>();
 	public long getUserId() {
 		return userId;

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 import com.workout.entity.User;
 
 @Repository
-@Transactional
 public class UserRepository {
 	@Autowired
 	private SessionFactory sessionFactory;

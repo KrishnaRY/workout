@@ -44,7 +44,7 @@ public class Workout  implements Serializable{
 	@Column(name="user_id")
 	private  long userId  ;
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="workoutId")
+	@JoinColumn(name="workout_id")
 	private List<WorkoutTransaction> workoutTransaction=new ArrayList<WorkoutTransaction>();
 	public Workout(String title, double calBurntPerUnitTime, UnitTime unitTime, long userId) {
 		super();

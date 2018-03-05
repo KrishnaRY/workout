@@ -11,7 +11,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 @Configuration
-@ComponentScan({ "com.workout.repository" })
+@ComponentScan({ "com.workout.repository","com.workout.service" })
 public class SessionFactoryTest {
 
 	@Bean(name = "dataSource")
@@ -28,6 +28,7 @@ public class SessionFactoryTest {
 	        properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 	        properties.put("hibernate.hbm2ddl.auto", "none");
 	        properties.put("hibernate.id.new_generator_mappings",false);
+	        properties.put("show_sql",true);
 	       
 	        return properties;
 	    }
