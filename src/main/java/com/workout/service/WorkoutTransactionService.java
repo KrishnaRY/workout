@@ -50,7 +50,7 @@ public class WorkoutTransactionService {
 		return calsBurnt * duration;
 	}
 
-	 @Cacheable(value = "WorkoutTransaction")
+	@Cacheable(value = "WorkoutTransaction")
 	public List getWorkoutTransactions() {
 		
 		 return workoutTransactionRepository.getWorkoutTransactions();

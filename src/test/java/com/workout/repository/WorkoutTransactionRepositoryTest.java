@@ -39,10 +39,20 @@ public class WorkoutTransactionRepositoryTest {
 	}
 	
 	@Test
-	@Timed(millis=200)
 	public void testgetWorkoutTransactions(){
+	long starttime=System.currentTimeMillis();
+		List workoutTransactionList=workoutTransactionService.getWorkoutTransactions();
+		System.out.println(System.currentTimeMillis()-starttime);
+		long starttime1=System.currentTimeMillis();
+		List workoutTransactionList1=workoutTransactionService.getWorkoutTransactions();
+		System.out.println(System.currentTimeMillis()-starttime1);
+	}
+
+	@Test
+	@Timed(millis=200)
+	public void testgetWorkoutTransactions1(){
 		List workoutTransactionList=workoutTransactionService.getWorkoutTransactions();
 		System.out.println("workoutTransactionList===>"+workoutTransactionList.size());
 	}
-
+	
 }
