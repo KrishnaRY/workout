@@ -4,8 +4,10 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -28,12 +30,21 @@ public class WorkoutTransactionRepository {
 		//sessionFactory.openSession().save(workoutTransaction);
 		
 	}
-	public List getWorkoutTransactions() {
+	public List getWorkoutTransactions(long workoutId) {
 		Session session = sessionFactory.openSession();
 		
-		List<WorkoutTransaction> result = session.createSQLQuery("select *  from workout_transaction")
-		         
-		          .list();
+		
+		List<WorkoutTransaction> result = ((SQLQuery) session.createSQLQuery("select txn_id,workout_id,start_time, stop_time,duration,cals_burnt  from workout_transaction  where workout_id=:workout_id")
+				  .setParameter("workout_id",workoutId))
+				  .addScalar("txn_id", StandardBasicTypes.LONG)
+				  .addScalar("workout_id", StandardBasicTypes.LONG)
+				  .addScalar("start_time", StandardBasicTypes.STRING)
+				  .addScalar("stop_time", StandardBasicTypes.STRING)
+				  .addScalar("duration", StandardBasicTypes.LONG)
+				  .addScalar("cals_burnt", StandardBasicTypes.DOUBLE)
+				  
+				  .list();
+		
 		return result;
 	}
 }

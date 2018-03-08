@@ -13,7 +13,7 @@ security:
     name: admin
     password: admin
   basic:
-    enabled: true
+    enabled: false
     port: 8081
 spring: 
   datasource: 

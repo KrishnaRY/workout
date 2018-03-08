@@ -1,15 +1,20 @@
 package com.workout.service;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.workout.dto.WorkoutTransactionDTO;
 import com.workout.entity.Workout;
 import com.workout.entity.WorkoutTransaction;
 import com.workout.repository.WorkoutRepository;
@@ -51,9 +56,25 @@ public class WorkoutTransactionService {
 	}
 
 	@Cacheable(value = "WorkoutTransaction")
-	public List getWorkoutTransactions() {
-		
-		 return workoutTransactionRepository.getWorkoutTransactions();
+	public List getWorkoutTransactions(long workoutId) {
+		List workTrans=workoutTransactionRepository.getWorkoutTransactions(workoutId);
+	//getWorkoutTransDto(workTrans);
+		 return getWorkoutTransDto(workTrans);
 	}
+
+	private List getWorkoutTransDto(List workTrans) {
+		List workoutDtoList=new ArrayList();
+			for (int i = 0; i < workTrans.size(); i++) {
+				Object[] result=(Object[]) workTrans.get(i);
+			
+				WorkoutTransactionDTO workoutTransactionDTO=new WorkoutTransactionDTO((Long)result[0],(Long)result[1],(String)result[2],(String)result[3],DurationFormatUtils.formatDuration((Long)result[4], "HH:mm:ss,SSS"),(Double)result[5]);
+				
+				workoutDtoList.add(workoutTransactionDTO)	;	  
+				
+				
+			}
+			return workoutDtoList;
+	}
+	
 
 }

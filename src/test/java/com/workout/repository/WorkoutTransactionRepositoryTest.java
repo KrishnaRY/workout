@@ -31,7 +31,7 @@ public class WorkoutTransactionRepositoryTest {
 	@Test
 	public void testCreateWorkOut(){
 		//	for(int i=1;i<50;i++){
-		WorkoutTransaction workoutTransaction=new WorkoutTransaction(8,  LocalDateTime.now().plusHours(1), LocalDateTime.now().plusHours(1), Duration.ofHours(1),1000);
+		WorkoutTransaction workoutTransaction=new WorkoutTransaction(1,  LocalDateTime.now().plusHours(1), LocalDateTime.now().plusHours(1), Duration.ofHours(1),1000);
 		long txnId=workoutTransactionService.createWorkoutTransaction(workoutTransaction);
 	//		}
 		assertNotEquals(txnId, 0);
@@ -41,17 +41,19 @@ public class WorkoutTransactionRepositoryTest {
 	@Test
 	public void testgetWorkoutTransactions(){
 	long starttime=System.currentTimeMillis();
-		List workoutTransactionList=workoutTransactionService.getWorkoutTransactions();
+	long workoutId=1;
+		List workoutTransactionList=workoutTransactionService.getWorkoutTransactions(workoutId);
 		System.out.println(System.currentTimeMillis()-starttime);
 		long starttime1=System.currentTimeMillis();
-		List workoutTransactionList1=workoutTransactionService.getWorkoutTransactions();
+		List workoutTransactionList1=workoutTransactionService.getWorkoutTransactions(workoutId);
 		System.out.println(System.currentTimeMillis()-starttime1);
 	}
 
 	@Test
 	@Timed(millis=200)
 	public void testgetWorkoutTransactions1(){
-		List workoutTransactionList=workoutTransactionService.getWorkoutTransactions();
+		long workoutId=1;
+		List workoutTransactionList=workoutTransactionService.getWorkoutTransactions(workoutId);
 		System.out.println("workoutTransactionList===>"+workoutTransactionList.size());
 	}
 	

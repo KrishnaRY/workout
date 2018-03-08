@@ -27,10 +27,12 @@ public class WorkoutTransactionController {
 
 	}
 	
-	@RequestMapping(value = "/getWorkoutTransactions", method = RequestMethod.GET)
-	public List getWorkoutTransactions() {
+	@RequestMapping(value = "/getWorkoutTransactions/{workoutId}", method = RequestMethod.GET)
+	public List getWorkoutTransactions(@PathVariable long workoutId) {
+		
+		
 
-		return workoutTransactionService.getWorkoutTransactions();
+		return workoutTransactionService.getWorkoutTransactions(workoutId);
 
 	}
 }

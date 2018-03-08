@@ -25,4 +25,9 @@ public class WorkoutService {
 		
 	}
 
+	public Workout getWorkout(long workoutId) {
+		// TODO Auto-generated method stub
+		return workoutRepository.getWorkout(workoutId);
+	}
+
 }

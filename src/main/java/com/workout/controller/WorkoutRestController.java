@@ -33,5 +33,13 @@ public class WorkoutRestController {
 		return workoutService.getWorkouts(userId);
 
 	}
+	
+
+	@RequestMapping(value = "/getWorkout/{workoutId}", method = RequestMethod.GET)
+	public ResponseEntity getWorkout(@PathVariable long workoutId) {
+		return new ResponseEntity<>(workoutService.getWorkout(workoutId), HttpStatus.OK);
+		
+	}
+
 
 }

@@ -64,6 +64,16 @@ public class WorkoutTransaction implements Serializable{
 	public void setCalsBurnt(double calsBurnt) {
 		this.calsBurnt = calsBurnt;
 	}
+	public WorkoutTransaction(long txnId,long workoutId, LocalDateTime startTime, LocalDateTime stopTime, Duration duration,
+			double calsBurnt) {
+		super();
+		this.txnId=txnId;
+		this.workoutId = workoutId;
+		this.startTime = startTime;
+		this.stopTime = stopTime;
+		this.duration = duration;
+		this.calsBurnt = calsBurnt;
+	}
 	public WorkoutTransaction(long workoutId, LocalDateTime startTime, LocalDateTime stopTime, Duration duration,
 			double calsBurnt) {
 		super();
