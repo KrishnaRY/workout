@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workout.entity.Workout;
-import com.workout.service.WorkoutService;
+import com.workout.service.IWorkoutService;
 
 @RestController
 public class WorkoutRestController {
 	@Autowired
-	private WorkoutService workoutService;
+	private IWorkoutService workoutService;
 
 	@RequestMapping(value = "/createWorkout", method = RequestMethod.POST)
 	public ResponseEntity<String> createWorkout(@RequestBody Workout workout) {

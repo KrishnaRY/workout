@@ -11,10 +11,9 @@ import org.hibernate.type.StandardBasicTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.workout.entity.Workout;
 import com.workout.entity.WorkoutTransaction;
 @Repository
-public class WorkoutTransactionRepository {
+public class WorkoutTransactionRepositoryImpl implements IWorkoutTransactionRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 	public long createWorkoutTransaction(WorkoutTransaction workoutTransaction) {
@@ -44,6 +43,7 @@ public class WorkoutTransactionRepository {
 				  .addScalar("cals_burnt", StandardBasicTypes.DOUBLE)
 				  
 				  .list();
+		
 		
 		return result;
 	}

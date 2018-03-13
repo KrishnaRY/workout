@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.workout.entity.User;
-import com.workout.service.UserService;
+import com.workout.service.IUserService;
 
 @RestController
 public class UserRestController {
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
 	@RequestMapping(value = "/registerUser", method = RequestMethod.POST)
 	public ResponseEntity<String> persistPerson(@RequestBody User user) {

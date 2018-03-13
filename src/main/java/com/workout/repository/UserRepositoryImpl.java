@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.workout.entity.User;
 
 @Repository
-public class UserRepository {
+public class UserRepositoryImpl implements IUserRepository{
 	@Autowired
 	private SessionFactory sessionFactory;
 	public long createUser(User user) {

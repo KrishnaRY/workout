@@ -13,21 +13,20 @@ import org.springframework.test.annotation.Timed;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
 import com.workout.SessionFactoryTest;
 import com.workout.entity.WorkoutTransaction;
-import com.workout.service.WorkoutTransactionService;
+import com.workout.service.IWorkoutTransactionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { SessionFactoryTest.class })
 public class WorkoutTransactionRepositoryTest {
 	
 	@Autowired
-	private WorkoutTransactionService workoutTransactionService;
+	private IWorkoutTransactionService workoutTransactionService;
 	@Autowired
-	private WorkoutTransactionRepository workoutTransactionRepository;
+	private IWorkoutTransactionRepository workoutTransactionRepository;
 	@Autowired
-	private WorkoutRepository workoutRepository;
+	private IWorkoutRepository workoutRepository;
 	@Test
 	public void testCreateWorkOut(){
 		//	for(int i=1;i<50;i++){

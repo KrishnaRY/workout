@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.workout.entity.User;
 import com.workout.entity.Workout;
 @Repository
-public class WorkoutRepository {
+public class WorkoutRepositoryImpl implements IWorkoutRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 

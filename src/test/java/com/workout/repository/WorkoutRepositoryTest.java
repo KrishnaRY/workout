@@ -1,6 +1,7 @@
 package com.workout.repository;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.List;
 
@@ -13,13 +14,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.workout.SessionFactoryTest;
 import com.workout.entity.UnitTime;
 import com.workout.entity.Workout;
-import com.workout.repository.WorkoutRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { SessionFactoryTest.class })
 public class WorkoutRepositoryTest {
 @Autowired
-private WorkoutRepository workoutRepository;
+private IWorkoutRepository workoutRepository;
 
 @Test
 public void testCreateWorkOut(){

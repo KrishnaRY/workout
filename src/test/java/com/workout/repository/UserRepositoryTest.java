@@ -14,7 +14,7 @@ import com.workout.entity.User;
 @ContextConfiguration(classes = { SessionFactoryTest.class })
 public class UserRepositoryTest {
 	@Autowired
-	 UserRepository userRepository;
+	 IUserRepository userRepository;
 
 	//private SessionFactory sessionFactory;
 	

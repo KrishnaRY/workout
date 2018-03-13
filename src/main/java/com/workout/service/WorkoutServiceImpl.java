@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.workout.entity.Workout;
-import com.workout.repository.WorkoutRepository;
+import com.workout.repository.IWorkoutRepository;
 
 @Service
 @Transactional
-public class WorkoutService {
+public class WorkoutServiceImpl implements IWorkoutService {
 	@Autowired
-	WorkoutRepository  workoutRepository;
+	private IWorkoutRepository  workoutRepository;
 	public List getWorkouts(long userId) {
 		
 		return workoutRepository.getWorkouts(userId);
@@ -26,7 +26,7 @@ public class WorkoutService {
 	}
 
 	public Workout getWorkout(long workoutId) {
-		// TODO Auto-generated method stub
+		
 		return workoutRepository.getWorkout(workoutId);
 	}
 

@@ -1,8 +1,6 @@
 package com.workout.service;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -17,16 +15,16 @@ import org.springframework.stereotype.Service;
 import com.workout.dto.WorkoutTransactionDTO;
 import com.workout.entity.Workout;
 import com.workout.entity.WorkoutTransaction;
-import com.workout.repository.WorkoutRepository;
-import com.workout.repository.WorkoutTransactionRepository;
+import com.workout.repository.IWorkoutRepository;
+import com.workout.repository.IWorkoutTransactionRepository;
 
 @Service
 @Transactional
-public class WorkoutTransactionService {
+public class WorkoutTransactionServiceImpl implements IWorkoutTransactionService{
 	@Autowired
-	private WorkoutTransactionRepository workoutTransactionRepository;
+	private IWorkoutTransactionRepository workoutTransactionRepository;
 	@Autowired
-	private WorkoutRepository workoutRepository;
+	private IWorkoutRepository workoutRepository;
 
 	public long createWorkoutTransaction(WorkoutTransaction workoutTransaction) {
 		Workout workout = workoutRepository.getWorkout(workoutTransaction.getWorkoutId());
